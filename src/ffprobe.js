@@ -30,11 +30,7 @@ function ffprobe(item, config, logger) {
       logger.debug(stdout)
       logger.debug(stderr)
 
-      return {
-        ok: false,
-        code: 'FFMPEG_UNDEFINED',
-        message: errors['FFMPEG_UNDEFINED'],
-      }
+      return { ok: true, code: 'OK', metadata }
     })
     .catch(err => {
       const code = parseError(err.message, item, config, logger)
